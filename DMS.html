@@ -1,0 +1,631 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Accueil-dms-e-store</title>
+    <link rel="stylesheet" href="style.css">
+    <meta name="description" content="DIALLO MULTI-SERVICES : Votre destination unique pour l'achat en ligne de produits variés et tous vos transferts d'argent Mobile Money au Sénégal et la sous-région. Rapidité, Sécurité, Fiabilité et efficacité.">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        /* Importation de polices Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap');
+
+/* Styles Généraux */
+:root {
+    --primary-color: #007bff; /* Bleu typique, à ajuster */
+    --secondary-color: #6c757d; /* Gris pour les actions secondaires */
+    --accent-color: #28a745; /* Vert pour le succès/boutons verts */
+    --text-color: #333;
+    --light-bg: #f8f9fa;
+    --dark-bg: #343a40;
+    --white: #ffffff;
+    --border-color: #dee2e6;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    line-height: 1.6;
+    color: var(--text-color);
+    background-color: var(--light-bg);
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+a {
+    text-decoration: none;
+    color: var(--primary-color);
+}
+
+ul {
+    list-style: none;
+}
+
+h1, h2, h3 {
+    margin-bottom: 1rem;
+    color: var(--dark-bg);
+}
+
+p {
+    margin-bottom: 1rem;
+}
+
+/* Boutons */
+.btn-primary, .btn-secondary, .btn-hero, .btn-outline, .add-to-cart-btn {
+    display: inline-block;
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-weight: 600;
+    transition: background-color 0.3s ease, color 0.3s ease;
+    border: none;
+    cursor: pointer;
+    text-align: center;
+}
+
+.btn-primary {
+    background-color: var(--primary-color);
+    color: var(--white);
+}
+
+.btn-primary:hover {
+    background-color: #0056b3;
+}
+
+.btn-secondary {
+    background-color: var(--secondary-color);
+    color: var(--white);
+}
+
+.btn-secondary:hover {
+    background-color: #5a6268;
+}
+
+.btn-hero {
+    margin-right: 15px;
+    margin-top: 20px;
+}
+
+.btn-outline {
+    background-color: transparent;
+    color: var(--primary-color);
+    border: 2px solid var(--primary-color);
+}
+
+.btn-outline:hover {
+    background-color: var(--primary-color);
+    color: var(--white);
+}
+
+.add-to-cart-btn {
+    background-color: var(--accent-color);
+    color: var(--white);
+    padding: 8px 15px;
+    font-size: 0.9em;
+}
+
+.add-to-cart-btn:hover {
+    background-color: #218838;
+}
+
+/* Header */
+header {
+    background-color: var(--white);
+    color: var(--dark-bg);
+    padding: 15px 0;
+    border-bottom: 1px solid var(--border-color);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+}
+
+header .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+header .logo h1 {
+    font-size: 1.8em;
+    margin: 0;
+    color: var(--primary-color);
+}
+
+header nav ul {
+    display: flex;
+}
+
+header nav ul li {
+    margin-left: 25px;
+}
+
+header nav ul li a {
+    color: var(--text-color);
+    font-weight: 600;
+    transition: color 0.3s ease;
+}
+
+header nav ul li a:hover {
+    color: var(--primary-color);
+}
+
+.header-actions .btn-primary {
+    padding: 8px 15px;
+    font-size: 0.9em;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+/* Hero Section */
+#hero {
+    background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('https://via.placeholder.com/1500x500?text=DIALLO+MULTI-SERVICES+Hero') no-repeat center center/cover;
+    background-color:#007bff;
+    text-align: center;
+    padding: 100px 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 450px;
+}
+
+#hero h2 {
+    font-size: 3em;
+    margin-bottom: 15px;
+    color: var(--white);
+}
+
+#hero p {
+    font-size: 1.2em;
+    max-width: 800px;
+    margin: 0 auto 30px auto;
+    color: var(--white);
+}
+
+/* Services Overview */
+#services-overview {
+    padding: 60px 0;
+    text-align: center;
+    background-color: var(--white);
+}
+
+#services-overview .container {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    gap: 30px;
+}
+
+.service-card {
+    background-color: var(--light-bg);
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    padding: 30px;
+    flex: 1;
+    min-width: 280px;
+    max-width: 32%;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.05);
+    transition: transform 0.3s ease;
+}
+
+.service-card:hover {
+    transform: translateY(-5px);
+}
+
+.service-card i {
+    font-size: 3em;
+    color: var(--primary-color);
+    margin-bottom: 20px;
+}
+
+.service-card h3 {
+    font-size: 1.5em;
+    margin-bottom: 15px;
+}
+
+/* Featured Products */
+#featured-products {
+    padding: 60px 0;
+    background-color: var(--light-bg);
+    text-align: center;
+}
+
+#featured-products h2 {
+    margin-bottom: 40px;
+}
+
+.product-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+    justify-content: center;
+    margin-bottom: 40px;
+}
+
+.product-item {
+    background-color: var(--white);
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    padding: 20px;
+    text-align: center;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.05);
+    transition: transform 0.3s ease;
+}
+
+.product-item:hover {
+    transform: translateY(-5px);
+}
+
+.product-item img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 5px;
+    margin-bottom: 15px;
+}
+
+.product-item h3 {
+    font-size: 1.2em;
+    margin-bottom: 10px;
+    height: 3em; /* Pour uniformiser la hauteur des titres */
+    overflow: hidden;
+}
+
+.product-item .price {
+    font-size: 1.4em;
+    font-weight: 700;
+    color: var(--primary-color);
+    margin-bottom: 15px;
+}
+
+.view-all {
+    margin-top: 20px;
+}
+
+/* Mobile Money Details */
+#mobile-money-details {
+    padding: 60px 0;
+    text-align: center;
+    background-color: var(--white);
+}
+
+#mobile-money-details h2 {
+    margin-bottom: 30px;
+}
+
+.mobile-operators {
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    flex-wrap: wrap;
+    margin-top: 30px;
+    margin-bottom: 40px;
+}
+
+.mobile-operators img {
+    height: 100px; /* Ajustez la taille des logos */
+    filter: grayscale(0%); /* Pour un look uniforme */
+    transition: filter 0.3s ease;
+}
+
+.mobile-operators img:hover {
+    filter: grayscale(0%); /* Couleurs originales au survol */
+}
+
+/* Contact Section */
+#contact {
+    padding: 60px 0;
+    background-color: var(--light-bg);
+    text-align: center;
+}
+
+#contact h2 {
+    margin-bottom: 30px;
+}
+
+.contact-info {
+    margin-bottom: 40px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+}
+
+.contact-info p {
+    font-size: 1.1em;
+    margin: 0;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.contact-info i {
+    color: var(--primary-color);
+    font-size: 1.2em;
+}
+
+.contact-form {
+    max-width: 600px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.contact-form input,
+.contact-form textarea {
+    padding: 12px;
+    border: 1px solid var(--border-color);
+    border-radius: 5px;
+    font-size: 1em;
+    font-family: 'Poppins', sans-serif;
+}
+
+.contact-form input:focus,
+.contact-form textarea:focus {
+    outline: none;
+    border-color: var(--primary-color);
+    box-shadow: 0 0 5px rgba(0, 123, 255, 0.2);
+}
+
+.contact-form button {
+    align-self: flex-start; /* Aligner le bouton à gauche */
+}
+
+
+/* Footer */
+footer {
+    background-color: var(--dark-bg);
+    color: var(--white);
+    padding: 30px 0;
+    text-align: center;
+    font-size: 0.9em;
+}
+
+footer .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.social-links a {
+    color: var(--white);
+    margin-left: 15px;
+    font-size: 1.5em;
+    transition: color 0.3s ease;
+}
+
+.social-links a:hover {
+    color: var(--primary-color);
+}
+
+
+/* Media Queries pour la Responsivité */
+@media (max-width: 992px) {
+    header .container {
+        flex-direction: column;
+        text-align: center;
+    }
+    header nav ul {
+        margin-top: 15px;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+    header nav ul li {
+        margin: 0 10px 10px 10px;
+    }
+    .header-actions {
+        margin-top: 15px;
+    }
+    #hero h2 {
+        font-size: 2.5em;
+    }
+    .service-card {
+        max-width: 48%;
+    }
+}
+
+@media (max-width: 768px) {
+    #hero {
+        padding: 80px 0;
+    }
+    #hero h2 {
+        font-size: 2em;
+    }
+    #hero p {
+        font-size: 1em;
+    }
+    .btn-hero {
+        display: block;
+        margin: 15px auto;
+    }
+    .service-card {
+        max-width: 100%; /* Empile les cartes sur petits écrans */
+    }
+    .product-grid {
+        grid-template-columns: 1fr; /* Une colonne par défaut sur mobile */
+    }
+    .mobile-operators img {
+        height: 40px;
+        margin-bottom: 15px;
+    }
+    footer .container {
+        flex-direction: column;
+    }
+    .social-links {
+        margin-top: 15px;
+    }
+}
+
+@media (max-width: 480px) {
+    header .logo h1 {
+        font-size: 1.5em;
+    }
+    header nav ul li {
+        margin: 0 8px 8px 8px;
+        font-size: 0.9em;
+    }
+    .btn-primary, .btn-secondary, .btn-outline, .add-to-cart-btn {
+        padding: 8px 15px;
+        font-size: 0.9em;
+    }
+    .contact-info .map-link {
+    color: var(--primary-color); /* Utilise la couleur primaire de votre site */
+    text-decoration: underline; /* Ajoute un soulignement pour indiquer que c'est un lien */
+    transition: color 0.3s ease;
+}
+
+.contact-info .map-link:hover {
+    color: #0056b3; /* Un bleu légèrement plus foncé au survol */
+    text-decoration: underline;
+    transition: color 0.3s ease;
+}
+
+}
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="logo">
+                <h1>DIALLO MULTI-SERVICES</h1>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="#">Accueil</a></li>
+                    <li><a href="#featured-products">Boutique</a></li>
+                    <li><a href="#mobile-money-details">Mobile Money</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </nav>
+            <div class="header-actions">
+                <a href="#" class="btn-primary"><i class="fas fa-shopping-cart"></i> Panier</a>
+
+            </div>
+        </div>
+    </header>
+
+    <section id="hero">
+        <div class="container">
+            <h2>Votre Partenaire de confiance de vente d'appareils électroniques & transfert Mobile Money</h2>
+            <p>Découvrez une large gamme de produits et effectuez vos transferts d'argent en toute simplicité et sécurité.</p>
+        </div>
+    </section>
+
+    <section id="services-overview">
+        <div class="container">
+            <div class="service-card">
+                <i class="fas fa-shopping-basket"></i>
+                <h3>Produits</h3>
+                <p>Explorez notre catalogue varié : Appareils électroniques, Accessoires et bien plus encore. Des produits de qualité à portée de clic.</p>
+                <a href="#featured-products" class="btn-outline">Voir les produits</a>
+            </div>
+            <div class="service-card">
+                <i class="fas fa-mobile-alt"></i>
+                <h3>Transfert Mobile Money</h3>
+                <p>Envoyez et retirez de l'argent via Orange Money, Wave... Rapide, sécurisé et disponible près de chez vous.</p>
+                <a href="#mobile-money-details" class="btn-outline">En savoir plus</a>
+            </div>
+            <div class="service-card">
+                <i class="fas fa-headset"></i>
+                <h3>Support Client</h3>
+                <p>Rentrez en contact directement avec le gérant pour vous accompagner et répondre à toutes vos questions. Votre satisfaction est notre priorité.</p>
+                <a href="https://wa.me/221781894505?text=Bonjour%20DIALLO%20MULTI-SERVICES%2C%20j'aimerai%20me%20renseigner%20sur%20vos%20produits%20ou%20services.%20Pourriez-vous%20m'aider?" target="_blank" class="btn-outline">Nous contacter</a> </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="featured-products">
+        <div class="container">
+            <h2>Nos Produits </h2>
+            <div class="product-grid">
+                <div class="product-item">
+                    <img src="https://images.samsung.com/is/image/samsung/p5/pt/pcd/mobile/pt_pcd_smartphones_galaxy_a_series_desktop.jpg?$ORIGIN_JPG$" alt="Produit 2">
+                    <h3>Téléphones & Tablettes</h3>
+                    <a href="smartphones.html" class="add-to-cart-btn">Voir les articles</a> </div>
+
+                </div>
+                <div class="product-item">
+                    <img src="https://topesdegama.com/app/uploads-topesdegama.com/2022/12/04-12-2022_01-1.jpg" alt="Produit 2">
+                    <h3>Smart TV</h3>
+                    <a href="SmartTV.html" class="add-to-cart-btn"> Voir les articles</a> </div>
+
+                </div>
+                <div class="product-item">
+                    <img src="https://tse1.mm.bing.net/th/id/OIP.h7-ZrwGL05CxGvhqNFDh9QHaFE?rs=1&pid=ImgDetMain&o=7&rm=3" alt="Produit 3">
+                    <h3>PC Portable</h3>
+                    <a href="Pcportable.html" class="add-to-cart-btn">Voir les articles</a> </div>
+
+                </div>
+                <div class="product-item">
+                    <img src="https://tse2.mm.bing.net/th/id/OIP.A3ogiiAWAHZjTODklnIdxAHaHa?rs=1&pid=ImgDetMain&o=7&rm=3" alt="Produit 2">
+                    <h3>Accessoires</h3>
+                    <a href="Accessoires.html" class="add-to-cart-btn">Voir les articles</a> </div>
+
+                </div>
+                <div class="product-item">
+                    <img src="https://th.bing.com/th?q=Accessoires+T%c3%a9l%c3%a9phone+HD&w=120&h=120&c=1&rs=1&qlt=90&cb=1&dpr=1.5&pid=InlineBlock&mkt=en-XA&cc=MA&setlang=fr&adlt=strict&t=1&mw=247" alt="Produit 2">
+                    <h3>Haut-Parleurs & Casques</h3>
+                    <a href="Hautparleurs.html" class="add-to-cart-btn">Voir les articles</a> </div>
+
+                </div>
+                <div class="product-item">
+                    <img src="https://static.fnac-static.com/multimedia/Images/FD/Comete/128317/CCP_IMG_600x400/1676715.jpg" alt="Produit 2">
+                    <h3>Consoles & Manettes</h3>
+                    <a href="Consoles&manettes.html" class="add-to-cart-btn">Voir les articles</a></div>
+
+                </div>
+                </div>
+        </div>
+    </section>
+
+    <section id="mobile-money-details">
+        <div class="container">
+            <h2>Services Mobile Money </h2>
+            <p>Effectuez vos opérations de transfert et de retrait d'argent par Wave ou Orange Money </p>
+            <div class="mobile-operators">
+                <img src="https://www.237online.com/wp-content/uploads/2020/12/orange-money.jpg" alt="Logo Orange Money">
+                <img src="https://kickstartafrica.com/wp-content/uploads/2020/12/94377508_918638458565635_5520442085410340864_o.png" alt="Logo Wave">
+                </div>
+            <p> Rendez-vous en boutique ou contactez-nous pour toute information et obtenez le meilleur service avec une efficacité hors pair.</p>
+            <a href="https://wa.me/221781894505?text=Bonjour%20DIALLO%20MULTI-SERVICES.%0AJe%20souhaiterais%20bénéficier%20de%20vos%20services%20de%20Mobile%20Money.%20Pourriez-vous%20m'aider%20s'il%20vous%20plaît?" target="_blank" class="btn-outline">Contacter pour Mobile Money</a> </div>
+        </div>
+    </section>
+
+    <section id="contact">
+        <div class="container">
+            <h2>Contactez-nous</h2>
+            <div class="contact-info">
+                <p><i class="fas fa-map-marker-alt"></i> Adresse (cliquer pour voir sur Google maps) : <a href="
+https://maps.app.goo.gl/tdQLqADmmLoiWqcT6" target="_blank" class="map-link">Rang de la CASA Night Club, RN6, Diaobé, SENEGAL</a></p>
+                <p><i class="fas fa-phone-alt"></i> Téléphone :(+221) 78-189-45-05</p>
+                <a href="https://wa.me/221781894505?text=Bonjour%20DIALLO%20MULTI-SERVICES%2C%20j'aimerai%20me%20renseigner%20sur%20vos%20produits%20ou%20services." target="_blank" class="whatsapp-button">
+    <i class="fab fa-whatsapp"></i> Contacter via WhatsApp
+</a>
+                <p><i class="fas fa-clock"></i> Horaires : Lundi - Samedi : 9h00 - 21h30</p>
+            
+    </section>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 DIALLO MULTI-SERVICES. Tous droits réservés.</p>
+            <div class="social-links">
+                <a href="#"><i class="fab fa-facebook-f"></i></a>
+                <a href="#"><i class="fab fa-instagram"></i></a>
+                <a href="#"><i class="fab fa-twitter"></i></a>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
